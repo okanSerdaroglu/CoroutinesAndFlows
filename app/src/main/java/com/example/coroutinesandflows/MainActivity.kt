@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
     private val RESULT_1 = "RESULT #1"
     private val RESULT_2 = "RESULT #2"
 
-    var button: Button = Button(this)
-    var textView: TextView = TextView(this)
+    lateinit var button: Button
+    lateinit var textView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
