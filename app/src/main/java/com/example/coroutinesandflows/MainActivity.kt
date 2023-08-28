@@ -15,9 +15,9 @@ import kotlinx.coroutines.withContext
  * in this example we get a result from background thread ( this can be both network and room request )
  * then we send this result to main thread and show it in main thread
  * --
- * coroutines are not threads, they are some tasks on threads,in a thread there can be more than a thread
+ * coroutines are not threads, they are some tasks on threads,in a thread there can be more than a coroutine
  * --
- * a suspend function should be called in a coroutine or another suspend function
+ * a suspend function should be called in a coroutine or another suspend function.suspend means a method can called from a coroutine
  * --
  * coroutine scope means, organize bunch of jobs together. For example, think that there are 5 different jobs
  * ( coroutines ) in a scope and we want to cancel all if one of them fails. if one of them fails we can
@@ -25,7 +25,7 @@ import kotlinx.coroutines.withContext
  * --
  * IO - input output. Worker thread
  * Main - main thread
- * Default -
+ * Default - heavy computational work ( filter a large list etc )
  * --
  * we can say that CoroutineScope.launch fires up a new coroutine and withContext not
  * starts a new coroutine just change the context ( Main, IO, Default )
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         /**
          * withContext switches the context what we mention. This means that a coroutine
          * start it's work in a thread, then it can work another thread, then continue
-         * in another thread. In here we fired up a coroutine in
+         * in another thread.
          */
         withContext(Main) {
             setNewText(input)
